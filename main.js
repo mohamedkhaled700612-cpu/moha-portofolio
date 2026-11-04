@@ -349,16 +349,46 @@ function setError(field,message) {
 function emailValid(value){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);}
 
 function validateForm(form) {
-  let ok=true;
-  const name=form.elements.clientName, email=form.elements.email, type=form.elements.projectType;
-  const budget=form.elements.budget, deadline=form.elements.deadline, desc=form.elements.description;
-  const check=(field,valid,key)=>{setError(field,valid?"":t(key));if(!valid)ok=false;};
-  check(name,!!name.value.trim(),"request.err.name");
-  check(email,emailValid(email.value.trim()),"request.err.email");
-  check(type,!!type.value,"request.err.type");
-  if(budget.value && Number(budget.value)<0) check(budget,false,"request.err.budget"); else setError(budget,"");
-  if(deadline.value){const d=new Date(`${deadline.value}T00:00:00`),today=new Date();today.setHours(0,0,0,0);check(deadline,d>=today,"request.err.deadline");}else setError(deadline,"");
-  check(desc,desc.value.trim().length>=10,"request.err.description");
+  let ok = true;
+
+  const name = form.elements.clientName;
+  const email = form.elements.email;
+  const phone = form.elements.phone;
+  const type = form.elements.projectType;
+  const budget = form.elements.budget;
+  const deadline = form.elements.deadline;
+  const desc = form.elements.description;
+
+  const check = (field, valid, key) => {
+    setError(field, valid ? "" : t(key));
+    if (!valid) ok = false;
+  };
+
+  check(name, !!name.value.trim(), "request.err.name");
+  check(email, emailValid(email.value.trim()), "request.err.email");
+
+  const phoneDigits = phone.value.replace(/\D/g, "");
+  check(phone, phoneDigits.length >= 8 && phoneDigits.length <= 15, "request.err.phone");
+
+  check(type, !!type.value, "request.err.type");
+
+  if (budget.value && Number(budget.value) < 0) {
+    check(budget, false, "request.err.budget");
+  } else {
+    setError(budget, "");
+  }
+
+  if (deadline.value) {
+    const d = new Date(`${deadline.value}T00:00:00`);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    check(deadline, d >= today, "request.err.deadline");
+  } else {
+    setError(deadline, "");
+  }
+
+  check(desc, desc.value.trim().length >= 10, "request.err.description");
+
   return ok;
 }
 
