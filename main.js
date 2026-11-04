@@ -395,7 +395,10 @@ function validateForm(form) {
 async function sendRequest(payload) {
   try {
     const docRef=await addDoc(collection(db,"projectRequests"),{
-      clientName:payload.clientName,email:payload.email,projectType:payload.projectType,
+clientName: payload.clientName,
+email: payload.email,
+phone: payload.phone,
+projectType: payload.projectType,
       budget:payload.budget,deadline:payload.deadline,description:payload.description,
       submittedAt:new Date().toISOString()
     });
