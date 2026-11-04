@@ -1,0 +1,171 @@
+
+/* =========================================
+   MOHA — PREMIUM LIGHT EFFECTS
+   Compatible with the original styles.css
+========================================= */
+
+/* Smooth reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(.2,.7,.2,1);
+  }
+  
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Staggered cards */
+  .skill-card,
+  .project-card,
+  .service-card,
+  .achievement-card {
+    transition:
+      transform 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease,
+      background 0.35s ease;
+  }
+  
+  /* Premium gold hover */
+  .project-card:hover,
+  .service-card:hover,
+  .achievement-card:hover {
+    border-color: var(--wine);
+    box-shadow: 0 15px 35px rgba(201,164,92,.10);
+  }
+  
+  /* Buttons */
+  .button-dark,
+  .header-cta,
+  .project-demo {
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      background 0.3s ease;
+  }
+  
+  .button-dark:hover,
+  .header-cta:hover,
+  .project-demo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(201,164,92,.2);
+  }
+  
+  /* Gold shine */
+  .button-dark::after,
+  .header-cta::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 50%;
+    height: 200%;
+    background: rgba(255,255,255,.2);
+    transform: rotate(25deg);
+    transition: left 0.6s ease;
+    pointer-events: none;
+  }
+  
+  .button-dark:hover::after,
+  .header-cta:hover::after {
+    left: 150%;
+  }
+  
+  /* Project image */
+  .project-preview {
+    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+  }
+  
+  .project-card:hover .project-preview {
+    transform: scale(1.04);
+  }
+  
+  /* Contact links */
+  .contact-big-link,
+  .contact-links a {
+    transition:
+      color 0.25s ease,
+      padding 0.25s ease;
+  }
+  
+  .contact-big-link:hover {
+    color: var(--wine2);
+    padding-left: 8px;
+  }
+  
+  /* Navigation */
+  .nav-desktop a,
+  .nav-mobile a {
+    transition: color 0.25s ease;
+  }
+  
+  /* Form focus */
+  .field input,
+  .field textarea,
+  .field select {
+    transition: border-color 0.25s ease;
+  }
+  
+  .field:focus-within label {
+    color: var(--wine2);
+  }
+  
+  /* Emblem subtle glow */
+  .mk-emblem {
+    transition:
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+  }
+  
+  .mk-emblem:hover {
+    border-color: var(--wine2);
+    box-shadow:
+      22px 22px 0 rgba(201,164,92,.14),
+      inset 0 0 55px rgba(201,164,92,.08),
+      0 0 35px rgba(201,164,92,.08);
+  }
+  
+  /* Mobile menu */
+  .nav-mobile {
+    transition:
+      max-height 0.35s ease,
+      padding 0.35s ease;
+  }
+  
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+  
+  /* Mobile performance */
+  @media (max-width: 720px) {
+    .project-card:hover,
+    .service-card:hover,
+    .achievement-card:hover,
+    .skill-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  
+    .mk-emblem:hover {
+      box-shadow: 22px 22px 0 rgba(201,164,92,.14);
+    }
+  }
+  

@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3f0">
+
+  <title>Mohamed Khaled — Digital Portfolio</title>
+  <meta name="description" content="Mohamed Khaled — Web developer and digital creator.">
+  <meta name="author" content="Mohamed Khaled">
+
+  <meta property="og:title" content="Mohamed Khaled — Digital Portfolio">
+  <meta property="og:description" content="Thoughtful websites, made with curiosity and care.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="effects.css">
+
+  <!-- OneSignal -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "7ee15009-d37c-4e20-8ef9-323cfb12fe9f",
+        serviceWorkerPath: "/mk-portfolio/OneSignalSDKWorker.js",
+        serviceWorkerParam: {
+          scope: "/mk-portfolio/"
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+
+      <a href="#hero" class="brand">
+        <span class="brand-symbol">M<span>K</span>.</span>
+        <small>PORTFOLIO / 2026</small>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="#hero" data-i18n="nav.home">Home</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#projects" data-i18n="nav.projects">Work</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+
+        <button id="langToggle" class="language-pill" type="button">
+          <span id="langLabel">العربية</span>
+          <span>↗</span>
+        </button>
+
+        <a class="header-cta" href="#request" data-i18n="nav.request">
+          Let's talk <b>↗</b>
+        </a>
+
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="navMobile"
+        >
+          <i></i>
+          <i></i>
+        </button>
+
+      </div>
+    </div>
+
+    <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+      <a href="#hero" data-i18n="nav.home">Home</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#projects" data-i18n="nav.projects">Work</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#request" data-i18n="nav.request">Request</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- SOCIAL LINKS -->
+<aside class="social-rail" id="socialRail">
+
+  <span data-i18n="social.follow">FOLLOW</span>
+
+  <a href="https://www.facebook.com/share/19cmJhaaA9/"
+     target="_blank"
+     rel="noopener"
+     aria-label="Facebook">
+    f
+  </a>
+
+  <a href="https://wa.me/201557382052"
+     target="_blank"
+     rel="noopener"
+     aria-label="WhatsApp">
+    WA
+  </a>
+
+  <a href="tel:+201557382052"
+     aria-label="Phone">
+    ☎
+  </a>
+
+  <i></i>
+
+</aside>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+
+      <div class="hero-topline">
+        <span>WEB DESIGN & DEVELOPMENT</span>
+        <span>BASED IN EGYPT · AVAILABLE FOR SELECT PROJECTS</span>
+      </div>
+
+      <div class="hero-main">
+
+        <!-- INTRO -->
+        <div class="hero-intro reveal">
+
+          <span class="eyebrow">
+            <i></i>
+            <span data-i18n="hero.eyebrow">Independent Web Developer</span>
+          </span>
+
+          <p class="hero-greeting" data-i18n="hero.intro">
+            Hello, I'm
+          </p>
+
+          <h1>
+            <span class="name-first">Mohamed</span>
+            <span class="name-last">
+              Khaled<span class="name-period">.</span>
+            </span>
+          </h1>
+
+          <p class="hero-description" data-i18n="hero.tagline">
+            I design and build thoughtful digital experiences for the web.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="button-dark" href="#projects">
+              <span data-i18n="hero.viewWork">Explore my work</span>
+              <b>↗</b>
+            </a>
+
+            <a class="underlink" href="#about" data-i18n="hero.moreAbout">
+              More about me ↓
+            </a>
+          </div>
+
+          <div class="hero-status">
+            <span></span>
+            <p data-i18n="hero.availability">
+              Learning, building, and open to meaningful projects
+            </p>
+          </div>
+
+        </div>
+
+        <!-- MK LOGO INSTEAD OF PHOTO -->
+        <div class="hero-photo-wrap reveal">
+
+          <div class="mk-emblem">
+            <span class="mk-monogram">M<span>K</span></span>
+            <span class="mk-line"></span>
+            <span class="mk-caption">MOHAMED KHALED</span>
+            <span class="mk-number">EST. 2026</span>
+          </div>
+
+          <div class="photo-caption">
+            <span>DESIGNING<br>THE FUTURE</span>
+            <b>✳</b>
+          </div>
+
+        </div>
+
+      </div>
+
+      <a href="#about" class="scroll-cue">
+        <span data-i18n="hero.scroll">SCROLL TO EXPLORE</span>
+        <b>↓</b>
+      </a>
+
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee-section" aria-label="Services ticker">
+      <div class="marquee-track">
+        <div class="marquee-content">
+
+          <span>WEB DESIGN</span><b>✳</b>
+          <span>FRONTEND DEVELOPMENT</span><b>✳</b>
+          <span>RESPONSIVE EXPERIENCES</span><b>✳</b>
+          <span>CREATIVE THINKING</span><b>✳</b>
+
+          <span>WEB DESIGN</span><b>✳</b>
+          <span>FRONTEND DEVELOPMENT</span><b>✳</b>
+          <span>RESPONSIVE EXPERIENCES</span><b>✳</b>
+          <span>CREATIVE THINKING</span><b>✳</b>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+
+      <div class="section-kicker reveal">
+        <span>01 /</span>
+        <span data-i18n="about.tag">A LITTLE INTRODUCTION</span>
+      </div>
+
+      <div class="about-grid">
+
+        <h2 class="editorial-title reveal" data-i18n="about.title">
+          Curiosity turns<br>
+          <em>ideas into impact.</em>
+        </h2>
+
+        <div class="about-copy reveal">
+          <p id="aboutBio"></p>
+
+          <div class="about-details">
+            <span>BASED IN <b>EGYPT</b></span>
+            <span>FOCUS <b>WEB DEVELOPMENT</b></span>
+          </div>
+
+          <a class="underlink" href="#contact" data-i18n="about.cta">
+            Let's connect ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-band">
+      <div class="stats-grid">
+
+        <article class="stat-item reveal">
+          <strong data-count="1">01</strong>
+          <span data-i18n="stats.projects">Featured project</span>
+        </article>
+
+        <article class="stat-item reveal">
+          <strong data-count="4">04</strong>
+          <span data-i18n="stats.technologies">Core technologies</span>
+        </article>
+
+        <article class="stat-item reveal">
+          <strong data-count="2">02</strong>
+          <span data-i18n="stats.languages">Site languages</span>
+        </article>
+
+        <article class="stat-item reveal">
+          <strong data-count="4">04</strong>
+          <span data-i18n="stats.services">Service areas</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section skills-section">
+
+      <div class="section-heading reveal">
+
+        <div>
+          <div class="section-kicker">
+            <span>02 /</span>
+            <span data-i18n="skills.tag">THE TOOLKIT</span>
+          </div>
+
+          <h2 class="editorial-title" data-i18n="skills.title">
+            Things I work <em>with.</em>
+          </h2>
+        </div>
+
+        <p data-i18n="skills.note">
+          A growing toolkit — always learning, always improving.
+        </p>
+
+      </div>
+
+      <div class="skills-grid" id="skillsGrid"></div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects-section">
+
+      <div class="section-heading reveal">
+
+        <div>
+          <div class="section-kicker">
+            <span>03 /</span>
+            <span data-i18n="projects.tag">SELECTED WORK</span>
+          </div>
+
+          <h2 class="editorial-title" data-i18n="projects.title">
+            Made with <em>purpose.</em>
+          </h2>
+        </div>
+
+        <p data-i18n="projects.intro">
+          A look at experiments and projects built to turn ideas into useful experiences.
+        </p>
+
+      </div>
+
+      <div id="projectsGrid" class="projects-grid"></div>
+
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="section achievements-section">
+
+      <div class="section-heading reveal">
+
+        <div>
+          <div class="section-kicker">
+            <span>04 /</span>
+            <span data-i18n="achievements.tag">THE JOURNEY</span>
+          </div>
+
+          <h2 class="editorial-title" data-i18n="achievements.title">
+            Small steps.<br>
+            <em>Real progress.</em>
+          </h2>
+        </div>
+
+        <p data-i18n="achievements.hint">
+          Milestones, certificates, and meaningful progress will be added here as they happen.
+        </p>
+
+      </div>
+
+      <div id="achievementsContainer" class="achievements-grid"></div>
+
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section services-section">
+
+      <div class="section-heading reveal">
+
+        <div>
+          <div class="section-kicker">
+            <span>05 /</span>
+            <span data-i18n="services.tag">WHAT I DO</span>
+          </div>
+
+          <h2 class="editorial-title" data-i18n="services.title">
+            Ideas, meet <em>execution.</em>
+          </h2>
+        </div>
+
+        <p data-i18n="services.intro">
+          Practical web solutions with care for the details that make a difference.
+        </p>
+
+      </div>
+
+      <div class="services-grid" id="servicesGrid"></div>
+
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="principles-section">
+
+      <div class="principles-inner">
+
+        <div class="section-kicker reveal">
+          <span>06 /</span>
+          <span data-i18n="principles.tag">MY APPROACH</span>
+        </div>
+
+        <h2 class="principles-title reveal" data-i18n="principles.title">
+          Good work is a balance of
+          <em>clear thinking, thoughtful design,</em>
+          and reliable code.
+        </h2>
+
+        <div class="principles-list reveal">
+          <span data-i18n="principles.one">01 — Understand</span>
+          <span data-i18n="principles.two">02 — Design</span>
+          <span data-i18n="principles.three">03 — Build</span>
+          <span data-i18n="principles.four">04 — Improve</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- REQUEST FORM -->
+    <section id="request" class="section request-section">
+
+      <div class="request-layout">
+
+        <div class="request-copy reveal">
+
+          <div class="section-kicker">
+            <span>07 /</span>
+            <span data-i18n="request.tag">START A PROJECT</span>
+          </div>
+
+          <h2 class="editorial-title" data-i18n="request.title">
+            Have an idea?<br>
+            <em>Let's shape it.</em>
+          </h2>
+
+          <div class="request-note">
+            <span>✳</span>
+            <span data-i18n="request.note">
+              Every good project starts with a conversation.
+            </span>
+          </div>
+
+        </div>
+
+        <form id="requestForm" class="request-form reveal" novalidate>
+
+          <div class="form-row">
+
+            <div class="field">
+              <label for="clientName" data-i18n="request.name">Your name</label>
+              <input type="text" id="clientName" name="clientName" autocomplete="name" required>
+              <span class="error" data-error-for="clientName"></span>
+            </div>
+
+            <div class="field">
+              <label for="email" data-i18n="request.email">Email address</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="error" data-error-for="email"></span>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="field">
+              <label for="projectType" data-i18n="request.type">Project type</label>
+
+              <select id="projectType" name="projectType" required>
+                <option value="" data-i18n="request.typePlaceholder">Choose a type</option>
+                <option value="Website">Website</option>
+                <option value="Landing page">Landing page</option>
+                <option value="Other">Other</option>
+              </select>
+
+              <span class="error" data-error-for="projectType"></span>
+            </div>
+
+            <div class="field">
+              <label for="budget" data-i18n="request.budget">Estimated budget (USD)</label>
+              <input type="number" id="budget" name="budget" min="0" step="50">
+              <span class="error" data-error-for="budget"></span>
+            </div>
+
+          </div>
+
+          <div class="field">
+            <label for="deadline" data-i18n="request.deadline">Target date</label>
+            <input type="date" id="deadline" name="deadline">
+            <span class="error" data-error-for="deadline"></span>
+          </div>
+
+          <div class="field">
+            <label for="description" data-i18n="request.description">
+              Tell me about the project
+            </label>
+
+            <textarea id="description" name="description" rows="4" required></textarea>
+            <span class="error" data-error-for="description"></span>
+          </div>
+
+          <button type="submit" class="button-dark form-submit">
+            <span data-i18n="request.submit">Send project request</span>
+            <b>↗</b>
+          </button>
+
+          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+
+        </form>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+
+      <div class="contact-inner">
+
+        <div class="section-kicker reveal">
+          <span>08 /</span>
+          <span data-i18n="contact.tag">GET IN TOUCH</span>
+        </div>
+
+        <h2 class="contact-title reveal" data-i18n="contact.title">
+          Have a good one<br>
+          <em>in mind?</em>
+        </h2>
+
+        <a class="contact-big-link reveal" href="mailto:" id="contactMail">
+          <span data-i18n="contact.cta">Let's talk about it</span>
+          <b>↗</b>
+        </a>
+
+        <div class="contact-links" id="contactLinks"></div>
+
+        <p class="contact-hint reveal" data-i18n="contact.hint">
+          Find me around the web.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <a href="#hero" class="footer-brand">MK<span>.</span></a>
+
+      <p data-i18n="footer.rights">
+        © 2026 Mohamed Khaled. All rights reserved.
+      </p>
+
+      <a href="#hero" class="back-top" data-i18n="footer.backTop">
+        Back to top ↑
+      </a>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="translations.js"></script>
+  <script type="module" src="main.js"></script>
+  <script src="effects.js"></script>
+</body>
+</html>
