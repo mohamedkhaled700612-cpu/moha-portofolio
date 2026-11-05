@@ -622,7 +622,7 @@ function showSuccessModal() {
       </h2>
 
       <p class="mk-thanks">
-        شكرًا لثقتك في MK Portfolio
+        شكرًا لثقتك في MK
       </p>
 
       <p class="mk-message">
