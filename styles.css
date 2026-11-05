@@ -1991,3 +1991,19 @@ html[dir="rtl"] .field {
   .intro-symbol { font-size: 100px; }
   .intro-bottom { font-size: 8px; }
      }
+
+/* Accessibility: Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .mk-intro *,
+  .mk-intro *::before,
+  .mk-intro *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .mk-intro {
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+}
