@@ -569,3 +569,21 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   $("#langToggle").addEventListener("click",toggleLanguage);
 });
+
+// MK Premium Intro
+document.addEventListener("DOMContentLoaded", () => {
+  const intro = document.getElementById("introScreen");
+
+  if (!intro) return;
+
+  document.body.style.overflow = "hidden";
+
+  setTimeout(() => {
+    intro.classList.add("hide");
+    document.body.style.overflow = "";
+  }, 3000);
+
+  setTimeout(() => {
+    intro.remove();
+  }, 4000);
+});
