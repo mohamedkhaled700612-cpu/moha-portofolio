@@ -227,10 +227,10 @@ window.OneSignalDeferred.push(async function (OneSignal) {
   try {
     await OneSignal.init({
       appId: "7ee15009-d37c-4e20-8ef9-323cfb12fe9f",
-      serviceWorkerPath: "/mk-portfolio/OneSignalSDKWorker.js",
-      serviceWorkerParam: {
-        scope: "/mk-portfolio/"
-      }
+      serviceWorkerPath: "/moha-portofolio/OneSignalSDKWorker.js",
+serviceWorkerParam: {
+  scope: "/moha-portofolio/"
+}
     });
 
     oneSignalInstance = OneSignal;
