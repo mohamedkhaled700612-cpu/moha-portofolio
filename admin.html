@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a1f44">
+
+  <title>MK | لوحة الإدارة</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      background: #f4f6fa;
+      color: #0a1f44;
+      font-family: inherit;
+    }
+
+    .admin-wrap {
+      width: min(950px, 92%);
+      margin: 55px auto;
+    }
+
+    .admin-header {
+      background: #0a1f44;
+      color: white;
+      padding: 28px;
+      border-radius: 18px;
+      margin-bottom: 25px;
+    }
+
+    .admin-header h1 {
+      margin: 0 0 8px;
+    }
+
+    .gold {
+      color: #d4a017;
+    }
+
+    .admin-card {
+      background: white;
+      border: 1px solid #e5e9f0;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 25px #0a1f4410;
+    }
+
+    .admin-card h2 {
+      margin-top: 0;
+    }
+
+    .admin-input {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px;
+      margin: 12px 0;
+      border: 1px solid #d9deea;
+      border-radius: 9px;
+      font: inherit;
+    }
+
+    .admin-btn {
+      background: #0a1f44;
+      color: white;
+      border: 0;
+      border-radius: 9px;
+      padding: 13px 22px;
+      font: inherit;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .admin-btn:hover {
+      filter: brightness(1.12);
+    }
+
+    .admin-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #loginStatus {
+      margin-top: 12px;
+    }
+
+    #requestsArea {
+      margin-top: 20px;
+    }
+
+    /* أقسام الطلبات */
+
+    .request-filters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .request-filters .admin-btn {
+      background: #e8edf5;
+      color: #0a1f44;
+      padding: 13px 8px;
+    }
+
+    .request-filters .admin-btn.active {
+      background: #0a1f44;
+      color: white;
+    }
+
+    /* حالات الطلبات */
+
+    .request-status {
+      display: inline-block;
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .status-pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .status-accepted {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .status-rejected {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .request-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .request-actions .admin-btn {
+      flex: 1;
+      min-width: 130px;
+    }
+
+    .accept-btn {
+      background: #16803c;
+    }
+
+    .reject-btn {
+      background: #b42318;
+    }
+
+    .delete-btn {
+      background: #64748b;
+    }
+
+    .empty-requests {
+      text-align: center;
+      padding: 30px 15px;
+      color: #64748b;
+      background: white;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 550px) {
+      .admin-wrap {
+        margin: 25px auto;
+      }
+
+      .admin-card {
+        padding: 18px;
+      }
+
+      .request-filters {
+        grid-template-columns: 1fr;
+      }
+
+      .request-actions {
+        flex-direction: column;
+      }
+
+      .request-actions .admin-btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script
+    src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+    defer>
+  </script>
+</head>
+
+<body>
+
+  <main class="admin-wrap">
+
+    <header class="admin-header">
+      <h1>
+        <span class="gold">MK</span>
+        لوحة الإدارة
+      </h1>
+
+      <p>إدارة طلبات المشاريع ومتابعة العملاء</p>
+    </header>
+
+    <!-- تسجيل الدخول -->
+
+    <section class="admin-card" id="loginCard">
+
+      <h2>تسجيل دخول الإدارة</h2>
+
+      <form id="adminLoginForm">
+
+        <input
+          class="admin-input"
+          type="email"
+          id="adminEmail"
+          placeholder="البريد الإلكتروني"
+          autocomplete="username"
+          required
+        >
+
+        <input
+          class="admin-input"
+          type="password"
+          id="adminPassword"
+          placeholder="كلمة المرور"
+          autocomplete="current-password"
+          required
+        >
+
+        <button class="admin-btn" type="submit">
+          تسجيل الدخول
+        </button>
+
+      </form>
+
+      <p id="loginStatus" role="status"></p>
+
+    </section>
+
+    <!-- لوحة الإدارة -->
+
+    <section class="admin-card" id="dashboard" hidden>
+
+      <h2>طلبات المشاريع</h2>
+
+      <p id="adminWelcome"></p>
+
+      <!-- الإشعارات -->
+
+      <button
+        class="admin-btn"
+        id="enableNotificationsBtn"
+        type="button"
+      >
+        تفعيل إشعارات الطلبات
+      </button>
+
+      <p id="notificationStatus" role="status"></p>
+
+      <button
+        class="admin-btn"
+        id="logoutBtn"
+        type="button"
+      >
+        تسجيل الخروج
+      </button>
+
+      <!-- أقسام الطلبات -->
+
+      <div id="requestFilters" class="request-filters">
+
+        <button
+          class="admin-btn active"
+          data-filter="pending"
+          type="button"
+        >
+          الطلبات الجديدة (0)
+        </button>
+
+        <button
+          class="admin-btn"
+          data-filter="accepted"
+          type="button"
+        >
+          المقبولة (0)
+        </button>
+
+        <button
+          class="admin-btn"
+          data-filter="rejected"
+          type="button"
+        >
+          المرفوضة (0)
+        </button>
+
+      </div>
+
+      <!-- عرض الطلبات -->
+
+      <div id="requestsArea">
+        <p>جاري تحميل الطلبات...</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="admin.js"></script>
+
+</body>
+</html>
