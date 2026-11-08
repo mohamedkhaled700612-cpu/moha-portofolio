@@ -1,0 +1,586 @@
+
+/* =========================================
+   MK — CINEMATIC PREMIUM INTERACTIONS
+   Black & Gold Edition
+   Responsive • Lightweight • Accessible
+========================================= */
+
+/* =========================================
+   01 — GLOBAL MOTION
+========================================= */
+
+:root {
+  --mk-motion: cubic-bezier(.2, .7, .2, 1);
+  --mk-motion-smooth: cubic-bezier(.2, .8, .2, 1);
+  --mk-gold: #c9a45c;
+  --mk-gold-light: #f3d99d;
+}
+
+/* =========================================
+   02 — SCROLL REVEAL
+========================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    opacity .8s var(--mk-motion),
+    transform .8s var(--mk-motion);
+
+  transition-delay: calc(var(--card-index, 0) * 70ms);
+}
+
+.reveal.visible,
+.reveal.is-visible,
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   03 — PREMIUM CARD INTERACTIONS
+========================================= */
+
+.skill-card,
+.project-card,
+.service-card,
+.achievement-card,
+.contact-link {
+  transition:
+    transform .4s var(--mk-motion),
+    background-color .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.skill-card:hover,
+.service-card:hover,
+.achievement-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-card:hover {
+  transform: translateY(-7px);
+}
+
+.contact-link:hover {
+  transform: translateX(-5px);
+}
+
+/* =========================================
+   04 — CINEMATIC HERO ENTRANCE
+========================================= */
+
+.hero-topline {
+  animation: mkHeroFadeDown 1s ease both;
+}
+
+.hero-intro {
+  animation: mkHeroFadeUp 1s .2s ease both;
+}
+
+.hero-photo-wrap {
+  perspective: 1000px;
+  animation: mkHeroPhotoReveal 1.2s .35s var(--mk-motion-smooth) both;
+}
+
+.hero-side-copy {
+  animation: mkHeroFadeUp 1s .6s ease both;
+}
+
+.scroll-cue {
+  animation: mkHeroFadeUp 1s .8s ease both;
+}
+
+@keyframes mkHeroFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mkHeroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mkHeroPhotoReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(.94);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* =========================================
+   05 — PREMIUM BUTTON LIGHT
+========================================= */
+
+.btn,
+.button,
+.primary-btn,
+.button-dark,
+.header-cta,
+.project-demo,
+.request-form button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::after,
+.button::after,
+.primary-btn::after,
+.button-dark::after,
+.project-demo::after {
+  content: "";
+
+  position: absolute;
+  top: -50%;
+  left: -120%;
+
+  width: 50%;
+  height: 200%;
+
+  background: rgba(255, 255, 255, .25);
+
+  transform: rotate(25deg);
+  transition: left .65s ease;
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+.btn:hover::after,
+.button:hover::after,
+.primary-btn:hover::after,
+.button-dark:hover::after,
+.project-demo:hover::after {
+  left: 150%;
+}
+
+/* =========================================
+   06 — MK 3D LUXURY EMBLEM
+========================================= */
+
+.mk-emblem {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 40%,
+      rgba(218, 177, 94, .19),
+      transparent 48%
+    ),
+    linear-gradient(
+      145deg,
+      #292319 0%,
+      #171510 42%,
+      #090909 100%
+    );
+
+  border: 1px solid rgba(218, 177, 94, .75);
+
+  box-shadow:
+    0 0 35px rgba(201, 164, 92, .10),
+    0 25px 60px rgba(0, 0, 0, .55),
+    22px 22px 0 rgba(201, 164, 92, .16),
+    inset 0 0 50px rgba(218, 177, 94, .08);
+
+  transform-style: preserve-3d;
+
+  transition:
+    box-shadow .5s ease,
+    border-color .5s ease,
+    transform .45s var(--mk-motion);
+
+  will-change: transform;
+}
+
+/* Inner gold frame */
+
+.mk-emblem::before {
+  inset: 18px;
+
+  border: 1px solid rgba(218, 177, 94, .55);
+
+  box-shadow:
+    inset 0 0 25px rgba(218, 177, 94, .04);
+
+  transition:
+    inset .5s ease,
+    border-color .5s ease;
+}
+
+/* Corner branding */
+
+.mk-emblem::after {
+  color: rgba(232, 198, 126, .75);
+  letter-spacing: 4px;
+}
+
+/* Metallic monogram */
+
+.mk-monogram {
+  position: relative;
+  z-index: 2;
+
+  background: linear-gradient(
+    125deg,
+    #8e682c 0%,
+    #f9e7ae 18%,
+    #c49a4e 35%,
+    #fff0bd 48%,
+    #a87932 66%,
+    #f0d18a 82%,
+    #9a702f 100%
+  );
+
+  background-size: 250% 250%;
+  background-position: 0% 50%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+
+  font-size: clamp(125px, 14vw, 175px);
+  font-weight: 600;
+  letter-spacing: -19px;
+
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .65));
+
+  animation: mkGoldFlow 7s ease-in-out infinite alternate;
+
+  transition: filter .4s ease;
+}
+
+/* K detail */
+
+.mk-monogram span {
+  background: linear-gradient(
+    145deg,
+    #fff0c0,
+    #d6ad60 35%,
+    #8f6428 65%,
+    #f5d995
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+  font-style: italic;
+}
+
+/* Gold separator */
+
+.mk-line {
+  width: 85px;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #a87d37,
+    #ffe4a0,
+    #a87d37,
+    transparent
+  );
+
+  box-shadow: 0 0 14px rgba(218, 177, 94, .5);
+}
+
+/* Brand name */
+
+.mk-caption {
+  color: #e7c982;
+  letter-spacing: 5px;
+  font-size: 10px;
+
+  text-shadow:
+    0 0 15px rgba(218, 177, 94, .25);
+}
+
+/* Establishment detail */
+
+.mk-number {
+  color: rgba(231, 201, 130, .7);
+  letter-spacing: 4px;
+}
+
+/* Emblem hover */
+
+.mk-emblem:hover {
+  border-color: #f3d99d;
+
+  box-shadow:
+    0 0 45px rgba(201, 164, 92, .2),
+    0 30px 70px rgba(0, 0, 0, .65),
+    22px 22px 0 rgba(201, 164, 92, .25),
+    inset 0 0 65px rgba(218, 177, 94, .13);
+}
+
+.mk-emblem:hover::before {
+  inset: 24px;
+  border-color: rgba(255, 224, 157, .85);
+}
+
+.mk-emblem:hover .mk-monogram {
+  filter:
+    drop-shadow(0 8px 15px rgba(0, 0, 0, .65))
+    drop-shadow(0 0 18px rgba(218, 177, 94, .3));
+}
+
+/* Metallic light movement */
+
+@keyframes mkGoldFlow {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* =========================================
+   07 — NAVIGATION
+========================================= */
+
+.nav-desktop a,
+.nav-mobile a {
+  position: relative;
+}
+
+.nav-desktop a::after,
+.nav-mobile a::after {
+  content: "";
+
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--wine2, var(--mk-gold));
+
+  transition: width .3s ease;
+}
+
+.nav-desktop a:hover::after,
+.nav-desktop a.active::after,
+.nav-mobile a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   08 — HEADER SCROLL
+========================================= */
+
+.site-header {
+  transition:
+    background .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .5);
+}
+
+/* =========================================
+   09 — FORM FOCUS
+========================================= */
+
+.request-form input,
+.request-form textarea,
+.request-form select {
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.request-form input:focus,
+.request-form textarea:focus,
+.request-form select:focus {
+  box-shadow: 0 4px 15px rgba(201, 164, 92, .12);
+}
+
+/* =========================================
+   10 — CONTACT LINKS
+========================================= */
+
+.contact-link .contact-icon {
+  transition:
+    transform .3s ease,
+    color .3s ease;
+}
+
+.contact-link:hover .contact-icon {
+  transform: rotate(-10deg) scale(1.1);
+  color: var(--wine2, var(--mk-gold));
+}
+
+/* =========================================
+   11 — PROJECT IMAGE
+========================================= */
+
+.project-preview {
+  transition: transform .7s var(--mk-motion);
+}
+
+.project-card:hover .project-preview {
+  transform: scale(1.055);
+}
+
+/* =========================================
+   12 — MARQUEE
+========================================= */
+
+.marquee-section:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* =========================================
+   13 — MOBILE MENU
+========================================= */
+
+.nav-mobile.open {
+  animation: mkMenuReveal .3s ease both;
+}
+
+@keyframes mkMenuReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   14 — SOCIAL LINKS
+========================================= */
+
+.social-rail a {
+  transition:
+    transform .25s ease,
+    color .25s ease;
+}
+
+.social-rail a:hover {
+  transform: translateY(-4px);
+  color: var(--wine2, var(--mk-gold));
+}
+
+/* =========================================
+   15 — ACCESSIBILITY
+========================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--wine2, var(--mk-gold));
+  outline-offset: 4px;
+}
+
+/* =========================================
+   16 — MOBILE OPTIMIZATION
+========================================= */
+
+@media (max-width: 720px) {
+  .hero-photo-wrap {
+    animation-delay: .2s;
+  }
+
+  .mk-monogram {
+    font-size: 125px;
+    letter-spacing: -15px;
+  }
+
+  .mk-emblem {
+    box-shadow:
+      0 0 25px rgba(201, 164, 92, .12),
+      14px 14px 0 rgba(201, 164, 92, .15),
+      inset 0 0 35px rgba(218, 177, 94, .08);
+  }
+
+  .mk-emblem:hover {
+    transform: none;
+  }
+
+  .skill-card:hover,
+  .project-card:hover,
+  .service-card:hover,
+  .achievement-card:hover {
+    transform: none;
+  }
+}
+
+/* =========================================
+   17 — REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .mk-emblem,
+  .mk-monogram {
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .hero-topline,
+  .hero-intro,
+  .hero-photo-wrap,
+  .hero-side-copy,
+  .scroll-cue {
+    animation: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
