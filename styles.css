@@ -2058,3 +2058,229 @@ transition: opacity .3s ease, visibility .3s ease;
   background: #c9a45c;
   box-shadow: 0 0 12px #c9a45c;
 }
+
+
+/* =========================================
+   MOHA — LUXURY HERO TYPOGRAPHY & LIGHT
+========================================= */
+
+/* Background atmosphere */
+
+.hero {
+  background:
+    radial-gradient(
+      ellipse at 78% 38%,
+      rgba(201, 164, 92, .16),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 12% 85%,
+      rgba(201, 164, 92, .08),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #090909 0%,
+      #11100d 50%,
+      #090909 100%
+    );
+}
+
+/* Subtle editorial grid */
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(201,164,92,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,164,92,.025) 1px, transparent 1px);
+
+  background-size: 65px 65px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 25%,
+    black 75%,
+    transparent
+  );
+}
+
+/* Keep content above background */
+
+.hero-topline,
+.hero-main,
+.scroll-cue {
+  position: relative;
+  z-index: 2;
+}
+
+/* Top line */
+
+.hero-topline {
+  color: #b4a78e;
+  letter-spacing: 2.5px;
+  font-size: 9px;
+}
+
+/* Greeting */
+
+.hero-greeting {
+  color: #c5b99f;
+  font-size: 24px;
+  letter-spacing: .5px;
+}
+
+/* Main name */
+
+.hero h1 {
+  font-size: clamp(68px, 8vw, 112px);
+  line-height: .94;
+  letter-spacing: -5px;
+  font-weight: 500;
+  text-shadow: 0 10px 40px rgba(0,0,0,.4);
+}
+
+/* Mohamed */
+
+.name-first {
+  color: #f4f0e8;
+  background: linear-gradient(
+    180deg,
+    #fffdf7,
+    #d6d0c3
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Khaled */
+
+.name-last {
+  background: linear-gradient(
+    115deg,
+    #a77b36,
+    #f5dfa5 35%,
+    #c49a4e 65%,
+    #f8e5b5
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 8px 22px rgba(201,164,92,.13));
+  padding-left: 45px;
+}
+
+/* Period */
+
+.name-period {
+  -webkit-text-fill-color: #f4d99d;
+}
+
+/* Description */
+
+.hero-description {
+  max-width: 370px;
+  color: #b6ad9e;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: .15px;
+}
+
+/* Main button */
+
+.hero-buttons .button-dark {
+  background: linear-gradient(
+    120deg,
+    #f1d99e,
+    #c49a4e 55%,
+    #a77b36
+  );
+
+  border: 1px solid #e2c27e;
+  color: #17130c;
+
+  box-shadow: 0 8px 30px rgba(201,164,92,.13);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.hero-buttons .button-dark:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(201,164,92,.25);
+}
+
+/* Secondary link */
+
+.hero-buttons .underlink {
+  color: #e3c47f;
+  border-color: rgba(227,196,127,.55);
+}
+
+/* Availability */
+
+.hero-status {
+  margin-top: 45px;
+}
+
+.hero-status p {
+  color: #aaa18f;
+  letter-spacing: .5px;
+}
+
+/* Scroll indicator */
+
+.scroll-cue {
+  color: #aaa18f;
+}
+
+.scroll-cue b {
+  color: #e5c47d;
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 720px) {
+  .hero h1 {
+    font-size: clamp(58px, 15vw, 84px);
+    letter-spacing: -3px;
+  }
+
+  .name-last {
+    padding-left: 25px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+    max-width: 310px;
+  }
+
+  .hero-topline {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .hero::after {
+    background-size: 45px 45px;
+  }
+}
+
+/* RTL support */
+
+[dir="rtl"] .name-last {
+  padding-left: 0;
+  padding-right: 35px;
+}
+
+@media (max-width: 720px) {
+  [dir="rtl"] .name-last {
+    padding-right: 25px;
+  }
+}
