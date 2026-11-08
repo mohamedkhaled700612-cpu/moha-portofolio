@@ -25,9 +25,9 @@ color-scheme: dark;
 --page: min(1180px, calc(100% - 100px));
 }
 
-- {
+* {
   box-sizing: border-box;
-  }
+}
 
 html {
 scroll-behavior: smooth;
@@ -2008,3 +2008,53 @@ transition-duration: 0.01ms !important;
 transition: opacity .3s ease, visibility .3s ease;
 }
   }
+
+
+/* MK — PREMIUM INTRO COLOR FIX */
+
+.mk-intro {
+  background: #0b0b0d;
+}
+
+.intro-grid {
+  background-image:
+    linear-gradient(rgba(201,164,92,.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,164,92,.2) 1px, transparent 1px);
+}
+
+.intro-glow {
+  background: #c9a45c;
+}
+
+.intro-orbit {
+  border-color: rgba(201,164,92,.22);
+}
+
+.intro-symbol .letter-m,
+.intro-symbol .symbol-dot {
+  color: #c9a45c;
+}
+
+.intro-divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #c9a45c,
+    transparent
+  );
+}
+
+.intro-subtitle,
+.intro-loading {
+  color: #c9a45c;
+}
+
+.intro-progress div {
+  background: #c9a45c;
+  box-shadow: 0 0 12px #c9a45c;
+}
+
+.intro-particles i {
+  background: #c9a45c;
+  box-shadow: 0 0 12px #c9a45c;
+}
