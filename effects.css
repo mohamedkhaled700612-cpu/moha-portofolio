@@ -1,0 +1,335 @@
+
+/* =========================================
+   MK PORTFOLIO — PREMIUM GOLD INTERACTIONS
+========================================= */
+
+/* REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity .8s cubic-bezier(.2,.7,.2,1),
+    transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible,
+.reveal.is-visible,
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* STAGGER */
+
+.skill-card,
+.project-card,
+.service-card,
+.achievement-card,
+.contact-link {
+  transition:
+    transform .4s cubic-bezier(.2,.7,.2,1),
+    background-color .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.skill-card:nth-child(2),
+.project-card:nth-child(2),
+.service-card:nth-child(2) {
+  transition-delay: .06s;
+}
+
+.skill-card:nth-child(3),
+.project-card:nth-child(3),
+.service-card:nth-child(3) {
+  transition-delay: .12s;
+}
+
+/* HERO ENTRANCE */
+
+.hero-topline {
+  animation: heroFadeDown 1s ease both;
+}
+
+.hero-intro {
+  animation: heroFadeUp 1s .2s ease both;
+}
+
+.hero-photo-wrap {
+  animation: heroPhotoReveal 1.2s .35s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.hero-side-copy {
+  animation: heroFadeUp 1s .6s ease both;
+}
+
+.scroll-cue {
+  animation: heroFadeUp 1s .8s ease both;
+}
+
+@keyframes heroFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroPhotoReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(.94);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* BUTTON EFFECTS */
+
+.btn,
+.button,
+.primary-btn,
+.button-dark,
+.header-cta,
+.project-demo,
+.request-form button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::after,
+.button::after,
+.primary-btn::after,
+.button-dark::after,
+.project-demo::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 50%;
+  height: 200%;
+  background: rgba(255,255,255,.25);
+  transform: rotate(25deg);
+  transition: left .65s ease;
+  z-index: -1;
+}
+
+.btn:hover::after,
+.button:hover::after,
+.primary-btn:hover::after,
+.button-dark:hover::after,
+.project-demo:hover::after {
+  left: 150%;
+}
+
+/* EMBLEM */
+
+.hero-photo-wrap {
+  perspective: 1000px;
+}
+
+.mk-emblem {
+  transform-style: preserve-3d;
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease,
+    border-color .45s ease;
+  will-change: transform;
+}
+
+.mk-emblem:hover {
+  border-color: var(--wine2);
+  box-shadow:
+    22px 22px 0 #c9a45c30,
+    inset 0 0 55px #c9a45c15,
+    0 20px 55px #0006;
+}
+
+/* EMBLEM DECORATION */
+
+.mk-emblem::before {
+  transition: inset .5s ease, border-color .5s ease;
+}
+
+.mk-emblem:hover::before {
+  inset: 25px;
+  border-color: var(--wine2);
+}
+
+.mk-monogram {
+  transition: text-shadow .4s ease;
+}
+
+.mk-emblem:hover .mk-monogram {
+  text-shadow: 0 5px 45px #c9a45c60;
+}
+
+/* NAVIGATION */
+
+.nav-desktop a,
+.nav-mobile a {
+  position: relative;
+}
+
+.nav-desktop a::after,
+.nav-mobile a::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--wine2);
+  transition: width .3s ease;
+}
+
+.nav-desktop a:hover::after,
+.nav-desktop a.active::after,
+.nav-mobile a:hover::after {
+  width: 100%;
+}
+
+/* HEADER */
+
+.site-header {
+  transition:
+    background .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 12px 40px #0008;
+}
+
+/* FORM */
+
+.request-form input,
+.request-form textarea,
+.request-form select {
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.request-form input:focus,
+.request-form textarea:focus,
+.request-form select:focus {
+  box-shadow: 0 4px 15px #c9a45c12;
+}
+
+/* CONTACT */
+
+.contact-link .contact-icon {
+  transition: transform .3s ease, color .3s ease;
+}
+
+.contact-link:hover .contact-icon {
+  transform: rotate(-10deg) scale(1.1);
+  color: var(--wine2);
+}
+
+/* PROJECT IMAGES */
+
+.project-preview {
+  transition: transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+.project-card:hover .project-preview {
+  transform: scale(1.055);
+}
+
+/* MARQUEE */
+
+.marquee-section:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* MOBILE MENU */
+
+.nav-mobile.open {
+  animation: menuReveal .3s ease both;
+}
+
+@keyframes menuReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SOCIAL LINKS */
+
+.social-rail a {
+  transition: transform .25s ease, color .25s ease;
+}
+
+.social-rail a:hover {
+  transform: translateY(-4px);
+  color: var(--wine2);
+}
+
+/* ACCESSIBILITY */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--wine2);
+  outline-offset: 4px;
+}
+
+/* RESPONSIVE MOTION */
+
+@media (max-width: 720px) {
+  .hero-photo-wrap {
+    animation-delay: .2s;
+  }
+
+  .mk-emblem:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .mk-emblem {
+    transform: none !important;
+  }
+}
